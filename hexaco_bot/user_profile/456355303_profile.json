@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.5",
+  "user_info": {
+    "type": "object",
+    "description": "Информация о пользователе (если доступно).",
+    "properties": {
+      "user_id": {"type": "string", "description": "Идентификатор пользователя."},
+      "first_name": {"type": ["string", "null"], "description": "Имя пользователя."},
+      "username": {"type": ["string", "null"], "description": "Имя пользователя в системе."}
+    }
+  },
+  "profile_generated_at": {
+    "type": "string",
+    "format": "date-time",
+    "description": "Метка времени создания профиля."
+  },
+  "personality": {
+    "type": "object",
+    "description": "Особенности личности на основе HEXACO.",
+    "properties": {
+      "honesty_humility": {"score": 2.19, "level": "low"},
+      "emotionality": {"score": 2.19, "level": "low"},
+      "extraversion": {"score": 3.0, "level": "medium"},
+      "agreeableness": {"score": 3.12, "level": "medium"},
+      "conscientiousness": {"score": 3.94, "level": "high"},
+      "openness_to_experience": {"score": 3.31, "level": "medium"},
+      "altruism": {"score": 3.5, "level": "medium"},
+      "interpretation": "Личность характеризуется низким уровнем честности-скромности и эмоциональности, средним уровнем экстраверсии, дружелюбности и открытости опыту, а также высоким уровнем добросовестности. Проявляет средний уровень альтруизма.",
+      "interaction_advice": "Для более продуктивного взаимодействия рекомендуется учитывать высокий уровень добросовестности и средний уровень дружелюбности."
+    },
+    "required": ["honesty_humility", "emotionality", "extraversion", "agreeableness", "conscientiousness", "openness_to_experience", "interpretation", "interaction_advice"]
+  },
+  "motivation": {
+    "type": "object",
+    "description": "Мотивационные аспекты (SDS, Dweck, RFQ).",
+    "properties": {
+      "sds_autonomy": {"score": 1.0, "level": "low"},
+      "sds_competence": {"score": 1.0, "level": "low"},
+      "sds_relatedness": {"score": 1.0, "level": "low"},
+      "dweck_mindset": {"score": -5.0, "type_is_growth": false},
+      "rfq_promotion": {"score": 23, "level": "high"},
+      "rfq_prevention": {"score": 18, "level": "medium"},
+      "interpretation": "Обнаружен низкий уровень автономии, компетентности и связанности по SDS, фиксированный менталитет по Dweck. Ориентация на продвижение высокая, а на предотвращение средняя по RFQ.",
+      "interaction_advice": "Для стимулирования мотивации рекомендуется поддерживать ростовой менталитет и учитывать высокую ориентацию на продвижение."
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "affect": {
+    "type": "object",
+    "description": "Аффективные состояния (PANAS).",
+    "properties": {
+      "panas_positive_affect": {"score": 28, "level": "high"},
+      "panas_negative_affect": {"score": 20, "level": "medium"},
+      "interpretation": "Отмечен высокий уровень позитивного аффекта и средний уровень негативного аффекта по PANAS.",
+      "interaction_advice": "Для поддержания позитивного настроения рекомендуется обращать внимание на факторы, вызывающие позитивные эмоции."
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "values_Schwartz": {
+    "type": "object",
+    "description": "Личностные ценности (Schwartz SVS), топ 3.",
+    "properties": {
+      "dominant_values": [
+        "Универсализм",
+        "Самоуважение",
+        "Добросовестность"
+      ],
+      "interpretation": "Основные ценности включают универсализм, самоуважение и добросовестность.",
+      "interaction_advice": "Для согласования ценностей рекомендуется поддерживать универсализм, самоуважение и добросовестность в рабочей среде."
+    },
+    "required": ["dominant_values", "interpretation", "interaction_advice"]
+  },
+  "resilience": {
+    "type": "object",
+    "description": "Устойчивость (CD-RISC).",
+    "properties": {
+      "cdrisc_score": 113,
+      "resilience_level": "high",
+      "interpretation": "Общий уровень устойчивости высокий.",
+      "interaction_advice": "Для поддержки устойчивости рекомендуется обращаться к внутренним ресурсам и стратегиям преодоления трудностей."
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "self_efficacy": {
+    "type": "object",
+    "description": "Общая самоэффективность.",
+    "properties": {
+      "gse_score": 64,
+      "self_efficacy_level": "high",
+      "interpretation": "Общий уровень самоэффективности высокий.",
+      "interaction_advice": "Для укрепления самоэффективности рекомендуется ставить перед собой достижимые цели и уделять внимание социальной поддержке."
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "change_stage": {
+    "type": "object",
+    "description": "Готовность к изменениям (URICA).",
+    "properties": {
+      "urica_dominant_stage": "Action",
+      "urica_score": 5.375,
+      "interpretation": "Доминирующая стадия изменений - 'Уже делаю (Action)'. Общий показатель готовности к изменениям высокий.",
+      "interaction_advice": "Для успешной адаптации и поддержания изменений рекомендуется продолжать действия, направленные на изменения."
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "summary": "Психологический профиль показывает низкий уровень честности-скромности и эмоциональности, средний уровень экстраверсии, дружелюбности и открытости опыту, а также высокий уровень добросовестности. Обнаружен низкий уровень автономии, компетентности и связанности по SDS, фиксированный менталитет по Dweck. Отмечен высокий уровень позитивного аффекта и средний уровень негативного аффекта. Основные ценности включают универсализм, самоуважение и добросовестность. Общий уровень устойчивости и самоэффективности высокий. Доминирующая стадия изменений - 'Уже делаю (Action)'. Для успешного взаимодействия рекомендуется учитывать высокий уровень добросовестности и средний уровень дружелюбности, стимулировать ростовой менталитет и поддерживать позитивное настроение."
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.5",
+  "user_info": {
+    "type": "object",
+    "description": "User's basic info (if available).",
+    "properties": {
+      "user_id": {"type": "string", "description": "User ID."},
+      "first_name": {"type": ["string", "null"], "description": "User's first name."},
+      "username": {"type": ["string", "null"], "description": "User's username."}
+    }
+  },
+  "profile_generated_at": "2025-07-07T16:30:00",
+  "personality": {
+    "type": "object",
+    "description": "HEXACO based personality traits.",
+    "properties": {
+      "honesty_humility": {"score": 3.19, "level": "medium"},
+      "emotionality": {"score": 2.31, "level": "low"},
+      "extraversion": {"score": 2.69, "level": "low"},
+      "agreeableness": {"score": 2.5, "level": "low"},
+      "conscientiousness": {"score": 4.06, "level": "high"},
+      "openness_to_experience": {"score": 2.88, "level": "medium"},
+      "altruism": {"score": 3.75, "level": "medium"},
+      "interpretation": "Пользователь обладает средней честностью-скромностью, низкой эмоциональностью, низким экстравертом, низкой дружелюбностью, высокой добросовестностью и средней открытостью к опыту. Также проявляет средний уровень альтруизма.",
+      "interaction_advice": "Для улучшения взаимодействия, стоит проявлять больше доброты и открытости в общении с коллегами."
+    },
+    "required": ["honesty_humility", "emotionality", "extraversion", "agreeableness", "conscientiousness", "openness_to_experience", "interpretation", "interaction_advice"]
+  },
+  "motivation": {
+    "type": "object",
+    "description": "Motivational aspects (SDS, Dweck, RFQ).",
+    "properties": {
+      "sds_autonomy": null,
+      "sds_competence": null,
+      "sds_relatedness": null,
+      "dweck_mindset": {"score": -3.0, "type_is_growth": false},
+      "rfq_promotion": {"score": 23, "level": "high"},
+      "rfq_prevention": {"score": 19, "level": "medium"},
+      "interpretation": "Пользователь имеет фиксированный менталитет, с высоким уровнем мотивации к продвижению и средним уровнем мотивации к предотвращению.",
+      "interaction_advice": "Для стимулирования лучших результатов, поощряйте его достижения и уделяйте внимание предотвращению возможных проблем."
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "affect": {
+    "type": "object",
+    "description": "Affective states (PANAS).",
+    "properties": {
+      "panas_positive_affect": {"score": 25, "level": "high"},
+      "panas_negative_affect": {"score": 13, "level": "medium"},
+      "interpretation": "У пользователя высокий уровень позитивного аффекта и средний уровень негативного аффекта.",
+      "interaction_advice": "Поддерживайте позитивную атмосферу и помогайте справляться с негативными эмоциями в рабочей среде."
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "values_Schwartz": {
+    "type": "object",
+    "description": "Personal values (Schwartz SVS), top 3.",
+    "properties": {
+      "dominant_values": ["Benevolence", "Self-Direction", "Achievement"],
+      "interpretation": "Основные ценности пользователя включают доброту, самонаправленность и достижение.",
+      "interaction_advice": "Для успешного взаимодействия, уважайте его ценности и поддерживайте стремление к достижениям."
+    },
+    "required": ["dominant_values", "interpretation", "interaction_advice"]
+  },
+  "resilience": {
+    "type": "object",
+    "description": "Resilience (CD-RISC).",
+    "properties": {
+      "cdrisc_score": 84,
+      "resilience_level": "medium",
+      "interpretation": "У пользователя средний уровень устойчивости к стрессу.",
+      "interaction_advice": "Предлагайте поддержку и стратегии преодоления стрессовых ситуаций для улучшения его устойчивости."
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "self_efficacy": {
+    "type": "object",
+    "description": "General self-efficacy.",
+    "properties": {
+      "gse_score": 44,
+      "self_efficacy_level": "medium",
+      "interpretation": "У пользователя средний уровень общей самоэффективности.",
+      "interaction_advice": "Поощряйте его уверенность в собственных силах и предоставляйте возможности для саморазвития."
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "change_stage": {
+    "type": "object",
+    "description": "Readiness for change (URICA).",
+    "properties": {
+      "urica_dominant_stage": "Contemplation",
+      "urica_score": 6.0,
+      "interpretation": "Пользователь находится в стадии размышлений о необходимости изменений.",
+      "interaction_advice": "Поддерживайте его в решении и предоставляйте информацию для принятия дальнейших шагов."
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "summary": "Психологический профиль пользователя отражает среднюю честность-скромность, низкую эмоциональность, низкий экстраверт, низкую дружелюбность, высокую добросовестность и среднюю открытость к опыту. Пользователь имеет фиксированный менталитет, с высокой мотивацией к продвижению и средней мотивацией к предотвращению. У него высокий уровень позитивного аффекта и средний уровень негативного аффекта. Основные ценности включают доброту, самонаправленность и достижение. Уровень устойчивости к стрессу и общей самоэффективности оценивается как средний. Пользователь находится в стадии размышлений о необходимости изменений. Для успешного взаимодействия, стоит проявлять больше доброты и открытости, поощрять достижения, поддерживать позитивную атмосферу и помогать справляться с негативными эмоциями."
+}

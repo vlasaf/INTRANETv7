@@ -1,0 +1,68 @@
+{
+  "name": "EM.Intranet Mini App",
+  "version": "0.1.0",
+  "description": "Mock-MVP интерфейса системы EM.Intranet для Telegram",
+  
+  "telegram": {
+    "bot_username": "YOUR_BOT_USERNAME",
+    "web_app_url": "https://your-domain.com/mini_app/",
+    "short_name": "em_intranet",
+    "title": "EM.Intranet v0.1"
+  },
+  
+  "features": {
+    "responsive": true,
+    "telegram_integration": true,
+    "mock_data": true,
+    "analytics": false,
+    "real_api": false
+  },
+  
+  "mock_endpoints": {
+    "user_profile": "/api/user/profile",
+    "systems": "/api/systems",
+    "initiatives": "/api/initiatives",
+    "join_system": "/api/systems/{id}/join",
+    "create_initiative": "/api/initiatives/create"
+  },
+  
+  "deployment": {
+    "build_command": "Не требуется - статические файлы",
+    "files": [
+      "index.html",
+      "styles.css", 
+      "script.js"
+    ],
+    "requirements": "Только веб-сервер с поддержкой статических файлов"
+  },
+  
+  "integration_notes": {
+    "telegram_bot_setup": [
+      "1. Создать бота через @BotFather",
+      "2. Получить токен бота",
+      "3. Настроить Web App URL через /setmenubutton", 
+      "4. Добавить описание через /setdescription"
+    ],
+    "hosting_options": [
+      "GitHub Pages",
+      "Netlify", 
+      "Vercel",
+      "Heroku (статический сайт)",
+      "Собственный VPS"
+    ],
+    "telegram_commands": [
+      "/start - Запуск Mini App",
+      "/profile - Открыть профиль", 
+      "/systems - Показать системы",
+      "/help - Справка"
+    ]
+  },
+  
+  "next_steps": [
+    "Загрузить файлы на хостинг",
+    "Настроить HTTPS (обязательно для Telegram)",
+    "Создать и настроить Telegram бота",
+    "Протестировать в Telegram клиенте",
+    "Подключить реальные API эндпоинты"
+  ]
+} 

@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.5",
+  "user_info": {
+    "type": "object",
+    "properties": {
+      "user_id": {"type": "string", "description": "User ID."},
+      "first_name": {"type": ["string", "null"], "description": "User's first name."},
+      "username": {"type": ["string", "null"], "description": "User's username."}
+    }
+  },
+  "profile_generated_at": {"type": "string", "format": "date-time", "description": "Profile generation timestamp."},
+  "personality": {
+    "type": "object",
+    "properties": {
+      "honesty_humility": {"type": "object", "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "HEXACO Honesty-Humility."},
+      "emotionality": {"type": "object", "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "HEXACO Emotionality."},
+      "extraversion": {"type": "object", "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "HEXACO Extraversion."},
+      "agreeableness": {"type": "object", "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "HEXACO Agreeableness."},
+      "conscientiousness": {"type": "object", "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "HEXACO Conscientiousness."},
+      "openness_to_experience": {"type": "object", "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "HEXACO Openness."},
+      "altruism": {"type": ["object", "null"], "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "HEXACO Altruism (if available)."},
+      "interpretation": {
+        "type": "string",
+        "description": "1 neutral, descriptive sentence on personality. Russian."
+      },
+      "interaction_advice": {
+        "type": "string",
+        "description": "1-2 specific, actionable work interaction sentences based on personality. Russian. No vague statements."
+      }
+    },
+    "required": ["honesty_humility", "emotionality", "extraversion", "agreeableness", "conscientiousness", "openness_to_experience", "interpretation", "interaction_advice"]
+  },
+  "motivation": {
+    "type": "object",
+    "properties": {
+      "sds_autonomy": {"type": ["object", "null"], "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "SDS Autonomy."},
+      "sds_competence": {"type": ["object", "null"], "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "SDS Competence."},
+      "sds_relatedness": {"type": ["object", "null"], "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "SDS Relatedness."},
+      "dweck_mindset": {"type": ["object", "null"], "properties": {"score": {"type": "number"}, "type_is_growth": {"type": "boolean"}}, "description": "Dweck Mindset (growth=true)."},
+      "rfq_promotion": {"type": ["object", "null"], "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "RFQ Promotion focus."},
+      "rfq_prevention": {"type": ["object", "null"], "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "RFQ Prevention focus."},
+      "interpretation": {
+        "type": "string",
+        "description": "1 neutral, descriptive sentence on motivation. Russian."
+      },
+      "interaction_advice": {
+        "type": "string",
+        "description": "1-2 specific, actionable work motivation/engagement sentences. Russian. No vague statements."
+      }
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "affect": {
+    "type": "object",
+    "properties": {
+      "panas_positive_affect": {"type": ["object", "null"], "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "PANAS Positive Affect."},
+      "panas_negative_affect": {"type": ["object", "null"], "properties": {"score": {"type": "number"}, "level": {"type": "string", "enum": ["low", "medium", "high"]}}, "description": "PANAS Negative Affect."},
+      "interpretation": {
+        "type": "string",
+        "description": "1 neutral, descriptive sentence on affect. Russian."
+      },
+      "interaction_advice": {
+        "type": "string",
+        "description": "1-2 specific, actionable work interaction sentences considering affect. Russian. No vague statements."
+      }
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "values_Schwartz": {
+    "type": "object",
+    "properties": {
+      "dominant_values": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "Top 3 dominant values (e.g., 'Самостоятельность'). Values in Russian."
+      },
+      "interpretation": {
+        "type": "string",
+        "description": "1 neutral, descriptive sentence on core values. Russian."
+      },
+      "interaction_advice": {
+        "type": "string",
+        "description": "1-2 specific, actionable work alignment sentences for values. Russian. No vague statements."
+      }
+    },
+    "required": ["dominant_values", "interpretation", "interaction_advice"]
+  },
+  "resilience": {
+    "type": "object",
+    "properties": {
+      "cdrisc_score": {"type": ["number", "null"]},
+      "resilience_level": {"type": ["string", "null"], "enum": ["low", "medium", "high"], "description": "Overall resilience level."},
+      "interpretation": {
+        "type": "string",
+        "description": "1 neutral, descriptive sentence on resilience. Russian."
+      },
+      "interaction_advice": {
+        "type": "string",
+        "description": "1-2 specific, actionable work support/leverage sentences for resilience. Russian. No vague statements."
+      }
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "self_efficacy": {
+    "type": "object",
+    "properties": {
+      "gse_score": {"type": ["number", "null"]},
+      "self_efficacy_level": {"type": ["string", "null"], "enum": ["low", "medium", "high"], "description": "Overall self-efficacy level."},
+      "interpretation": {
+        "type": "string",
+        "description": "1 neutral, descriptive sentence on self-efficacy. Russian."
+      },
+      "interaction_advice": {
+        "type": "string",
+        "description": "1-2 specific, actionable work task/support sentences for self-efficacy. Russian. No vague statements."
+      }
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "change_stage": {
+    "type": "object",
+    "properties": {
+      "urica_dominant_stage": {"type": ["string", "null"], "enum": ["precontemplation", "contemplation", "preparation", "action", "maintenance"], "description": "Dominant stage of change."},
+      "urica_score": {"type": ["number", "null"], "description": "General readiness score (if applicable)."},
+      "interpretation": {
+        "type": "string",
+        "description": "1 neutral, descriptive sentence on change readiness. Russian."
+      },
+      "interaction_advice": {
+        "type": "string",
+        "description": "1-2 specific, actionable work change initiative sentences. Russian. No vague statements."
+      }
+    },
+    "required": ["interpretation", "interaction_advice"]
+  },
+  "summary": {
+    "type": "string",
+    "description": "Overall summary (4-6 sentences) integrating key findings. Conclude with 2-3 highly practical, actionable general work interaction tips (communication, collaboration, or motivation). Concrete & useful. Start with 'Психологический профиль...'. Entire summary & tips in Russian."
+  }
+}

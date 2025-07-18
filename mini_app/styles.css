@@ -1,0 +1,1055 @@
+/* Сброс стилей и общие настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    background-color: #F9F8FF;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* A. Top Bar */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: linear-gradient(135deg, #e0d7ff 0%, #caefdf 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    box-shadow: 0 2px 10px rgba(106, 50, 255, 0.1);
+    z-index: 1000;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #6A32FF;
+}
+
+.version-badge {
+    background: #6A32FF;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.nav-routes {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    background: rgba(106, 50, 255, 0.1);
+    color: #6A32FF;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.xp-chip {
+    background: #FF6B35;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.avatar-placeholder:hover {
+    transform: scale(1.05);
+}
+
+/* Основной контейнер */
+.main-container {
+    display: flex;
+    margin-top: 64px;
+    min-height: calc(100vh - 64px);
+}
+
+/* B. Левый сайдбар */
+.sidebar {
+    position: sticky;
+    top: 64px;
+    width: 300px;
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding: 24px;
+    background: transparent;
+}
+
+/* B1. Карточка профиля */
+.profile-card {
+    background: linear-gradient(135deg, #e0d7ff 0%, #caefdf 100%);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(106, 50, 255, 0.1);
+}
+
+.profile-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.profile-avatar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 56px;
+}
+
+.profile-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: url('static/avatar_placeholder.svg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-info {
+    flex: 1;
+    min-width: 0;
+    padding-right: 8px;
+}
+
+.profile-name {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #333;
+    line-height: 1.2;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #666;
+}
+
+.profile-xp {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6A32FF;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.progress-section {
+    margin-bottom: 20px;
+}
+
+.progress-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #6A32FF;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.profile-details {
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.detail-icon {
+    font-size: 16px;
+}
+
+.detail-text {
+    font-size: 14px;
+    color: #666;
+}
+
+.recommendations h4 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.recommendations ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.recommendations li {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+    padding-left: 16px;
+    position: relative;
+}
+
+.recommendations li::before {
+    content: "•";
+    color: #6A32FF;
+    position: absolute;
+    left: 0;
+}
+
+.psychoprofile-placeholder {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    padding: 16px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-title {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.placeholder-content {
+    width: 100%;
+    height: 60px;
+    background: rgba(106, 50, 255, 0.1);
+    border-radius: 8px;
+}
+
+/* B2. Карточка достижений */
+.achievements-card {
+    background: linear-gradient(135deg, #e0d7ff 0%, #caefdf 100%);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(106, 50, 255, 0.1);
+}
+
+.achievements-card h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.achievement-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.achievement-badge {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #666;
+}
+
+.achievements-placeholder {
+    height: 100px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+}
+
+/* C. Центральная колонка */
+.main-content {
+    flex: 1;
+    padding: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.welcome-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* C2. Системы EM */
+.systems-section {
+    margin-bottom: 40px;
+}
+
+.systems-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 24px;
+}
+
+.systems-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.system-card {
+    background: linear-gradient(135deg, #e0d7ff 0%, #caefdf 100%);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(106, 50, 255, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.system-card:hover {
+    transform: translateY(-2px);
+}
+
+.system-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.system-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.system-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.participants-count {
+    background: rgba(106, 50, 255, 0.1);
+    color: #6A32FF;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.system-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.system-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.system-leader {
+    font-size: 14px;
+    color: #666;
+}
+
+.join-link {
+    color: #6A32FF;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.join-link:hover {
+    color: #5528CC;
+}
+
+/* C3. Инициативы */
+.initiatives-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.create-initiative-btn {
+    background: transparent;
+    border: 2px solid #FF6B35;
+    color: #FF6B35;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.create-initiative-btn:hover {
+    background: #FF6B35;
+    color: white;
+}
+
+.initiative-card {
+    background: linear-gradient(135deg, #e0d7ff 0%, #caefdf 100%);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(106, 50, 255, 0.1);
+}
+
+.initiative-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.initiative-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    flex: 1;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-badge.active {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22C55E;
+    border: 1px solid #22C55E;
+}
+
+.initiative-creator {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.initiative-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.initiative-card .progress-section {
+    margin-bottom: 0;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.initiative-card .progress-bar {
+    flex: 1;
+}
+
+.progress-percent {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6A32FF;
+}
+
+.xp-reward {
+    font-size: 12px;
+    color: #FF6B35;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.details-link {
+    color: #6A32FF;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.details-link:hover {
+    text-decoration: underline;
+}
+
+/* Mobile drawer (скрыт по умолчанию) */
+.mobile-drawer {
+    display: none;
+}
+
+/* Responsive дизайн */
+@media (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        display: none;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .systems-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-routes {
+        display: none;
+    }
+    
+    .mobile-drawer {
+        display: block;
+        position: fixed;
+        top: 64px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 64px);
+        background: #F9F8FF;
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+    
+    .mobile-drawer.open {
+        left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 0 16px;
+    }
+    
+    .logo {
+        font-size: 18px;
+    }
+    
+    .main-content {
+        padding: 16px;
+    }
+    
+    .welcome-title {
+        font-size: 24px;
+    }
+    
+    .system-card {
+        padding: 16px;
+    }
+    
+    .initiative-card {
+        padding: 16px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.system-card,
+.initiative-card,
+.profile-card,
+.achievements-card {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Кастомные скроллбары */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(106, 50, 255, 0.3);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(106, 50, 255, 0.5);
+} 
+
+/* ======================
+   PROFILE MODAL STYLES
+   ====================== */
+
+.profile-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.profile-modal-content {
+    background: white;
+    border-radius: 12px;
+    max-width: 920px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.profile-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    z-index: 10;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.2s ease;
+}
+
+.profile-close-btn:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+/* Profile Header */
+.profile-header-section {
+    padding: 40px 40px 30px;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px 12px 0 0;
+}
+
+.profile-avatar-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.profile-avatar-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.avatar-edit-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    color: white;
+    font-size: 12px;
+}
+
+.profile-avatar-container:hover .avatar-edit-overlay {
+    opacity: 1;
+}
+
+.avatar-edit-overlay span:first-child {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.profile-name-section h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+
+.profile-role {
+    font-size: 16px;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Personality Badge */
+.personality-badge {
+    margin: 30px 40px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.personality-icon {
+    font-size: 32px;
+    color: #667eea;
+    min-width: 48px;
+    text-align: center;
+}
+
+.personality-type {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.personality-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Psychoprofile Section */
+.psychoprofile-section {
+    padding: 0 40px 40px;
+}
+
+.psychoprofile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.psycho-card {
+    background: white;
+    border: 1px solid #e1e5e9;
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.psycho-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.psycho-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.psycho-card-insight {
+    font-size: 18px;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 8px;
+}
+
+.psycho-card-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.psycho-card-sources {
+    font-size: 12px;
+    color: #999;
+    text-align: right;
+    font-style: italic;
+}
+
+/* Profile Footer */
+.profile-footer {
+    padding: 20px 40px;
+    border-top: 1px solid #e1e5e9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #999;
+    background: #f8f9fa;
+    border-radius: 0 0 12px 12px;
+}
+
+/* Avatar Upload Modal */
+.avatar-upload-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.avatar-upload-content {
+    background: white;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-upload-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid #e1e5e9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.avatar-upload-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.close-btn:hover {
+    background: #f0f0f0;
+}
+
+.avatar-upload-body {
+    padding: 24px;
+}
+
+.avatar-preview-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 24px;
+    border: 2px dashed #ddd;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#avatarPreview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.upload-placeholder {
+    text-align: center;
+    color: #666;
+}
+
+.upload-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.upload-hint {
+    font-size: 12px;
+    color: #999;
+    margin: 4px 0 0 0;
+}
+
+.avatar-upload-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary {
+    background: #f8f9fa;
+    color: #666;
+    border: 1px solid #e1e5e9;
+}
+
+.btn-secondary:hover {
+    background: #e9ecef;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5a6fd8;
+}
+
+.btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Profile Modal Responsive */
+@media (max-width: 768px) {
+    .profile-modal {
+        padding: 10px;
+    }
+    
+    .profile-modal-content {
+        max-height: 95vh;
+    }
+    
+    .profile-header-section {
+        padding: 30px 20px 20px;
+    }
+    
+    .personality-badge {
+        margin: 20px;
+        padding: 16px;
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .psychoprofile-section {
+        padding: 0 20px 30px;
+    }
+    
+    .psychoprofile-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-footer {
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .avatar-upload-content {
+        max-width: 90vw;
+    }
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EM.Intranet v0.1</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <!-- A. Top Bar -->
+    <header class="top-bar">
+        <div class="logo-section">
+            <div class="logo">🍄 EM.Intranet</div>
+            <span class="version-badge">v0.1</span>
+        </div>
+        
+        <nav class="nav-routes">
+            <a href="#" class="nav-item" data-route="focus">🎯 /focus</a>
+            <a href="#" class="nav-item" data-route="pulse">❤️ /pulse</a>
+            <a href="#" class="nav-item" data-route="initiate">🚀 /initiate</a>
+            <a href="#" class="nav-item" data-route="retro">📊 /retro</a>
+            <a href="#" class="nav-item" data-route="mycelium">🍄 /mycelium</a>
+            <a href="#" class="nav-item" data-route="news">📰 /news</a>
+            <a href="#" class="nav-item" data-route="hint">💡 /hint</a>
+        </nav>
+        
+        <div class="header-right">
+            <div class="xp-chip">+870 XP</div>
+            <div class="avatar-placeholder" onclick="openProfile()"></div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- B. Левый сайдбар -->
+        <aside class="sidebar">
+            <!-- B1. Карточка профиля -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar-section">
+                        <div class="profile-avatar"></div>
+                        <div class="profile-xp" id="user-xp">870 XP</div>
+                    </div>
+                    <div class="profile-info">
+                        <h3 class="profile-name">Алиса Петрова</h3>
+                        <div class="profile-tags">
+                            <span class="tag">Архитектор – INTJ</span>
+                            <span class="tag">PaEi</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="progress-section">
+                    <div class="progress-label">Прогресс уровня</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 87%"></div>
+                    </div>
+                    <div class="progress-text">870 / 1000</div>
+                </div>
+                
+                <div class="profile-details">
+                    <div class="detail-item">
+                        <span class="detail-icon">🛡️</span>
+                        <span class="detail-text">Гильдия: Орден броадкаста</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">🧠</span>
+                        <span class="detail-text">Профиль: INFP | P65 / A45 / E30 / I55</span>
+                    </div>
+                </div>
+                
+                <div class="recommendations">
+                    <h4>Рекомендации:</h4>
+                    <ul>
+                        <li>Заведи свою гильдию или поддержи чужую</li>
+                        <li>Участвуй в 2 ретроспективах</li>
+                        <li>Пройди soft-чек с наставником</li>
+                    </ul>
+                </div>
+                
+                <div class="psychoprofile-placeholder">
+                    <div class="placeholder-title">Психопрофиль</div>
+                    <div class="placeholder-content"></div>
+                </div>
+            </div>
+            
+            <!-- B2. Карточка достижений -->
+            <div class="achievements-card">
+                <h3>🏆 Достижения:</h3>
+                <div class="achievement-badges">
+                    <span class="achievement-badge">Пройден онбординг</span>
+                    <span class="achievement-badge">Ретро-мастер 2-го уровня</span>
+                    <span class="achievement-badge">Медаль «Свет грибницы»</span>
+                </div>
+                <div class="achievements-placeholder"></div>
+            </div>
+        </aside>
+
+        <!-- C. Центральная колонка -->
+        <main class="main-content">
+            <!-- C1. Заголовок -->
+            <h1 class="welcome-title">Добро пожаловать в грибницу!</h1>
+            
+            <!-- C2. Раздел "Системы EM" -->
+            <section class="systems-section">
+                <h2>🔵 Системы EM</h2>
+                <div class="systems-grid" data-systems-placeholder>
+                    <div class="system-card" data-system="giphy">
+                        <div class="system-header">
+                            <span class="system-icon">📣</span>
+                            <div class="system-info">
+                                <h3>Система «Гифы»</h3>
+                                <span class="participants-count">8 участников</span>
+                            </div>
+                        </div>
+                        <p class="system-description">Осваивают питательную среду, превращают её в вырывку.</p>
+                        <div class="system-footer">
+                            <span class="system-leader">Лидер: 1</span>
+                            <a href="#" class="join-link" onclick="joinSystem('giphy')">Вступить</a>
+                        </div>
+                    </div>
+                    
+                    <div class="system-card" data-system="mycelium">
+                        <div class="system-header">
+                            <span class="system-icon">🏛️</span>
+                            <div class="system-info">
+                                <h3>Система «Мицелий»</h3>
+                                <span class="participants-count">5 участников</span>
+                            </div>
+                        </div>
+                        <p class="system-description">Сшивают гифы и гасят конфликты между системами.</p>
+                        <div class="system-footer">
+                            <span class="system-leader">Лидер: 1</span>
+                            <a href="#" class="join-link" onclick="joinSystem('mycelium')">Вступить</a>
+                        </div>
+                    </div>
+                    
+                    <div class="system-card" data-system="dna-codes">
+                        <div class="system-header">
+                            <span class="system-icon">🎬</span>
+                            <div class="system-info">
+                                <h3>Система «Коды ДНК»</h3>
+                                <span class="participants-count">6 участников</span>
+                            </div>
+                        </div>
+                        <p class="system-description">Отвечают на вопросы «кто мы», задают границы игры.</p>
+                        <div class="system-footer">
+                            <span class="system-leader">Лидер: 1</span>
+                            <a href="#" class="join-link" onclick="joinSystem('dna-codes')">Вступить</a>
+                        </div>
+                    </div>
+                    
+                    <div class="system-card" data-system="ravens">
+                        <div class="system-header">
+                            <span class="system-icon">🕵️‍♂️</span>
+                            <div class="system-info">
+                                <h3>Система «Вороны»</h3>
+                                <span class="participants-count">7 участников</span>
+                            </div>
+                        </div>
+                        <p class="system-description">Сканируют все системы, ищут уязвимости</p>
+                        <div class="system-footer">
+                            <span class="system-leader">Лидеры: 2</span>
+                            <a href="#" class="join-link" onclick="joinSystem('ravens')">Вступить</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- C3. Раздел "Инициативы" -->
+            <section class="initiatives-section">
+                <div class="section-header">
+                    <h2>🎯 Инициативы</h2>
+                    <button class="create-initiative-btn" onclick="createInitiative()">Создать инициативу</button>
+                </div>
+                
+                <div class="initiative-card">
+                    <div class="initiative-header">
+                        <h3>Обновление системы ретроспектив</h3>
+                        <span class="status-badge active">Активно</span>
+                    </div>
+                    <div class="initiative-creator">Создатель: Алиса P.</div>
+                    <p class="initiative-description">Создание более эффективного формата ретроспектив с интеграцией AI-ассистента</p>
+                    
+                    <div class="progress-section">
+                        <div class="progress-label">Прогресс</div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                            <span class="progress-percent">65%</span>
+                        </div>
+                        <div class="xp-reward">+100 XP</div>
+                        <a href="#" class="details-link">Подробнее</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Profile Modal/Page -->
+    <div class="profile-modal" id="profileModal" style="display: none;">
+        <div class="profile-modal-content">
+            <div class="profile-close-btn" onclick="closeProfile()">&times;</div>
+            
+            <!-- Profile Header -->
+            <div class="profile-header-section">
+                <div class="profile-avatar-container">
+                    <img src="static/avatar_placeholder.svg" alt="Аватар" class="profile-avatar-large" id="profileAvatar">
+                    <div class="avatar-edit-overlay" onclick="changeAvatar()">
+                        <span>📷</span>
+                        <span>Изменить фото</span>
+                    </div>
+                </div>
+                <div class="profile-name-section">
+                    <h1 id="profileFullName">Алиса Петрова</h1>
+                    <p class="profile-role" id="profileRole">R&D Lead</p>
+                </div>
+            </div>
+            
+            <!-- Personality Badge -->
+            <div class="personality-badge">
+                <div class="personality-icon">♞</div>
+                <div class="personality-info">
+                    <div class="personality-type" id="personalityType">INTJ — Архитектор</div>
+                    <div class="personality-description" id="personalityDesc">Творческий стратег, у которого на всё есть план.</div>
+                </div>
+            </div>
+            
+            <!-- Psychoprofile Cards -->
+            <div class="psychoprofile-section">
+                <div class="psychoprofile-grid" id="psychoprofileGrid">
+                    <!-- Cards will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Profile Footer -->
+            <div class="profile-footer">
+                <span class="profile-version">Версия профиля 1.0</span>
+                <span class="profile-updated">Обновлено: 15.12.2024</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Avatar Upload Modal -->
+    <div class="avatar-upload-modal" id="avatarUploadModal" style="display: none;">
+        <div class="avatar-upload-content">
+            <div class="avatar-upload-header">
+                <h3>Изменить фото профиля</h3>
+                <button class="close-btn" onclick="closeAvatarUpload()">&times;</button>
+            </div>
+            <div class="avatar-upload-body">
+                <div class="avatar-preview-container">
+                    <img id="avatarPreview" src="" alt="Превью" style="display: none;">
+                    <div class="upload-placeholder" id="uploadPlaceholder">
+                        <div class="upload-icon">📷</div>
+                        <p>Выберите изображение</p>
+                        <p class="upload-hint">JPG, PNG до 5 MB</p>
+                    </div>
+                </div>
+                <input type="file" id="avatarFileInput" accept="image/jpeg,image/png" style="display: none;">
+                <div class="avatar-upload-buttons">
+                    <button class="btn btn-secondary" onclick="document.getElementById('avatarFileInput').click()">Выбрать файл</button>
+                    <button class="btn btn-primary" id="saveAvatarBtn" onclick="saveAvatar()" disabled>Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer для навигации -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-content">
+            <!-- Содержимое сайдбара для мобильных -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

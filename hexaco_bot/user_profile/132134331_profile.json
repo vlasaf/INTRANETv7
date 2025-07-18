@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.5",
+  "user_info": {
+    "type": "object",
+    "properties": {
+      "user_id": {"type": "string"},
+      "first_name": {"type": ["string", "null"]},
+      "username": {"type": ["string", "null"]}
+    },
+    "description": "User's basic info (if available)."
+  },
+  "profile_generated_at": {
+    "type": "string",
+    "format": "date-time",
+    "description": "Profile generation timestamp."
+  },
+  "personality": {
+    "type": "object",
+    "properties": {
+      "honesty_humility": {
+        "score": 2.56,
+        "level": "low"
+      },
+      "emotionality": {
+        "score": 2.44,
+        "level": "low"
+      },
+      "extraversion": {
+        "score": 4.31,
+        "level": "high"
+      },
+      "agreeableness": {
+        "score": 2.88,
+        "level": "low"
+      },
+      "conscientiousness": {
+        "score": 4.06,
+        "level": "high"
+      },
+      "openness_to_experience": {
+        "score": 3.56,
+        "level": "medium"
+      },
+      "altruism": {
+        "score": 2.75,
+        "level": "low"
+      },
+      "interpretation": "Персона имеет высокий уровень экстраверсии и добросовестности, низкий уровень честности-скромности, эмоциональности, согласительности и альтруизма, средний уровень открытости опыту.",
+      "interaction_advice": "Для более продуктивного взаимодействия стоит учитывать высокую экстраверсию и добросовестность персоны, а также ориентироваться на средний уровень открытости к опыту."
+    },
+    "required": ["honesty_humility", "emotionality", "extraversion", "agreeableness", "conscientiousness", "openness_to_experience", "interpretation", "interaction_advice"],
+    "description": "HEXACO based personality traits."
+  },
+  "motivation": {
+    "type": "object",
+    "properties": {
+      "sds_autonomy": {
+        "score": 1.6,
+        "level": "low"
+      },
+      "sds_competence": {
+        "score": 1.0,
+        "level": "low"
+      },
+      "sds_relatedness": {
+        "score": 1.3,
+        "level": "low"
+      },
+      "dweck_mindset": {
+        "score": -6.0,
+        "type_is_growth": false
+      },
+      "rfq_promotion": {
+        "score": 26,
+        "level": "high"
+      },
+      "rfq_prevention": {
+        "score": 13,
+        "level": "medium"
+      },
+      "interpretation": "Мотивационный профиль персоны характеризуется низкими уровнями автономии, компетентности и связанности, а также фиксированным мировоззрением. Однако присутствует высокий уровень мотивации к продвижению и средний уровень мотивации к предотвращению.",
+      "interaction_advice": "Для эффективной мотивации стоит обращать внимание на поддержку автономии, развитие компетентности и укрепление связанности, а также стимулировать мотивацию к продвижению."
+    },
+    "required": ["interpretation", "interaction_advice"],
+    "description": "Motivational aspects (SDS, Dweck, RFQ)."
+  },
+  "affect": {
+    "type": "object",
+    "properties": {
+      "panas_positive_affect": {
+        "score": 38,
+        "level": "high"
+      },
+      "panas_negative_affect": {
+        "score": 15,
+        "level": "medium"
+      },
+      "interpretation": "Персона обладает высоким уровнем позитивного аффекта и средним уровнем негативного аффекта.",
+      "interaction_advice": "Для поддержания позитивного настроения и снижения негативных эмоций, важно создавать позитивную атмосферу и обеспечивать поддержку в трудных ситуациях."
+    },
+    "required": ["interpretation", "interaction_advice"],
+    "description": "Affective states (PANAS)."
+  },
+  "values_Schwartz": {
+    "type": "object",
+    "properties": {
+      "dominant_values": [
+        "Безопасность",
+        "Власть",
+        "Достижение"
+      ],
+      "interpretation": "Топ-3 доминирующих ценностей персоны: безопасность, власть, достижение.",
+      "interaction_advice": "Для эффективного взаимодействия важно учитывать ценности безопасности, власти и достижения персоны."
+    },
+    "required": ["dominant_values", "interpretation", "interaction_advice"],
+    "description": "Personal values (Schwartz SVS), top 3."
+  },
+  "resilience": {
+    "type": "object",
+    "properties": {
+      "cdrisc_score": 100,
+      "resilience_level": "medium",
+      "interpretation": "Общий уровень устойчивости персоны находится на среднем уровне.",
+      "interaction_advice": "Для укрепления устойчивости рекомендуется развивать личную компетентность, стрессоустойчивость и поддержку при изменениях."
+    },
+    "required": ["interpretation", "interaction_advice"],
+    "description": "Resilience (CD-RISC)."
+  },
+  "self_efficacy": {
+    "type": "object",
+    "properties": {
+      "gse_score": 55,
+      "self_efficacy_level": "medium",
+      "interpretation": "Общий уровень самоэффективности персоны находится на среднем уровне.",
+      "interaction_advice": "Для повышения самоэффективности стоит уделять внимание уверенности в своих способностях и развитию социальной самоэффективности."
+    },
+    "required": ["interpretation", "interaction_advice"],
+    "description": "General self-efficacy."
+  },
+  "change_stage": {
+    "type": "object",
+    "properties": {
+      "urica_dominant_stage": "action",
+      "urica_score": 5.375,
+      "interpretation": "Персона находится в стадии 'Уже делаю (Action)' по готовности к изменениям.",
+      "interaction_advice": "Для поддержки в стадии действия важно обеспечивать поддержку и стимулировать дальнейшие действия в направлении изменений."
+    },
+    "required": ["interpretation", "interaction_advice"],
+    "description": "Readiness for change (URICA)."
+  },
+  "summary": "Психологический профиль персоны характеризуется высокой экстраверсией, добросовестностью и мотивацией к продвижению, низкой честностью-скромностью, эмоциональностью, согласительностью и альтруизмом. Топ-3 ценностей: безопасность, власть, достижение. Уровни устойчивости и самоэффективности средние. Персона находится в стадии 'Уже делаю (Action)' по готовности к изменениям. Для эффективного взаимодействия стоит учитывать особенности личности и мотивации, поддерживать позитивный аффект, развивать устойчивость и самоэффективность, а также поддерживать в процессе изменений."
+}
